@@ -1,11 +1,5 @@
 # Document Intake Assistant
-
-**Candidate:** Gauri Nitin Gulhane  
-**Technical Test:** LLM Application  
-**Repository:** [github.com/gaurigulhane/Document_Intake_Assistant](https://github.com/gaurigulhane/Document_Intake_Assistant)  
-**Deadline:** September 2026  
-
----
+ 
 
 ## 1. Project Overview
 
