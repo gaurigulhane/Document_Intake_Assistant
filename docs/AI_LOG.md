@@ -1,11 +1,5 @@
-# AI Development & Decision Log
+# AI Development & Decision Log 
 
-**Candidate:** Gauri Nitin Gulhane  
-**Technical Test:** LLM Application — Document Intake Assistant  
-**Repository:** [github.com/gaurigulhane/Document_Intake_Assistant](https://github.com/gaurigulhane/Document_Intake_Assistant)  
-**Date:** September 2026  
-
----
 
 ## 0. Technical Test Brief & Requirements Compliance
 
