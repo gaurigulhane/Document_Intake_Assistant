@@ -1,0 +1,158 @@
+{
+  "info": {
+    "name": "Document Intake Assistant API",
+    "description": "Postman Collection for Document Intake Assistant LLM Application API endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000/api",
+      "type": "string"
+    },
+    {
+      "key": "sessionId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "conflictId",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Create Session",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/sessions",
+          "host": ["{{baseUrl}}"],
+          "path": ["sessions"]
+        }
+      }
+    },
+    {
+      "name": "Send Message",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": \"My name is Jane Smith and my brother James is my executor\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/sessions/{{sessionId}}/messages",
+          "host": ["{{baseUrl}}"],
+          "path": ["sessions", "{{sessionId}}", "messages"]
+        }
+      }
+    },
+    {
+      "name": "Get State",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/sessions/{{sessionId}}/state",
+          "host": ["{{baseUrl}}"],
+          "path": ["sessions", "{{sessionId}}", "state"]
+        }
+      }
+    },
+    {
+      "name": "Direct Edit State",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"field\": \"home_address\",\n  \"value\": \"10 Downing Street, London\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/sessions/{{sessionId}}/state",
+          "host": ["{{baseUrl}}"],
+          "path": ["sessions", "{{sessionId}}", "state"]
+        }
+      }
+    },
+    {
+      "name": "Get Conflicts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/sessions/{{sessionId}}/conflicts",
+          "host": ["{{baseUrl}}"],
+          "path": ["sessions", "{{sessionId}}", "conflicts"]
+        }
+      }
+    },
+    {
+      "name": "Resolve Conflict",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"choice\": \"use_new\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/sessions/{{sessionId}}/conflicts/{{conflictId}}/resolve",
+          "host": ["{{baseUrl}}"],
+          "path": ["sessions", "{{sessionId}}", "conflicts", "{{conflictId}}", "resolve"]
+        }
+      }
+    },
+    {
+      "name": "Generate Draft Document",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/sessions/{{sessionId}}/document",
+          "host": ["{{baseUrl}}"],
+          "path": ["sessions", "{{sessionId}}", "document"]
+        }
+      }
+    },
+    {
+      "name": "Download PDF",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/sessions/{{sessionId}}/document/pdf",
+          "host": ["{{baseUrl}}"],
+          "path": ["sessions", "{{sessionId}}", "document", "pdf"]
+        }
+      }
+    },
+    {
+      "name": "Send Email",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"user@example.com\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/sessions/{{sessionId}}/email",
+          "host": ["{{baseUrl}}"],
+          "path": ["sessions", "{{sessionId}}", "email"]
+        }
+      }
+    }
+  ]
+}

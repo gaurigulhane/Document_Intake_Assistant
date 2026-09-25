@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: document-intake-assistant
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=production
+      - LLM_PROVIDER=mock
+      - DATABASE_URL=sqlite:///./document_intake.db
+      - EMAIL_HOST=smtp.gmail.com
+      - EMAIL_PORT=587
+      - EMAIL_USERNAME=gaurigulhane76@gmail.com
+      - EMAIL_PASSWORD=ybazdrkoukkqwpnn
+      - EMAIL_FROM=gaurigulhane76@gmail.com
+      - ALLOWED_ORIGINS=*
+    restart: unless-stopped
